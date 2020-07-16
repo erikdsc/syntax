@@ -1,0 +1,40 @@
+"def [a-zA-Z_]*\([a-zA-Z]*\)(?=:)": function
+"(?<=[^.a-zA-Z0-9])class [a-zA-Z0-9]*(?=:)": class
+"(?<=[^.a-zA-Z0-9])(from|import|as) ": import
+"(?<!\w)(None|True|False)(?!\w)": special
+"(?<=\.)\w*(?=[^(])": instancevariable
+"(?<=[^.a-zA-Z0-9])(if|while)(?= )": ifwhile
+"(?<=[^.a-zA-Z0-9])(try|except|else)(?=:)": tryexceptelse
+"(?<= )in(?= )": in
+"for(?= \w)*": for
+"\"[^\"]*\"": string
+"#.*": comment
+#
+Usage: <regex: name>
+
+NB: 
+    Needs to be exactly ": " between regex and name, with no spaces before
+        regex or after name!
+    The # symbol symbolizes the end of the syntaxes. Everything above it should
+        be syntax on the form [regex_expression]: [regex_name]
+
+****************
+
+function: matches text that starts with "def " followed by a space
+and more text followed by paranthesis
+
+class: matches text that starts with "class " followed by
+more text and a colon that is not included in the match.
+
+import: matches next that has "import " and letters. If there is "from <letters"
+or "as <letters>", it will be included in the match
+
+special: Matches "None", "False" or "True" if it is not preceded or proceded by
+letters/numbers
+
+variable: matches letters if they are followed by an equal-sign with- or without
+extra subtraction or plus signs.
+
+string: matches all characters in between two "
+
+I think the rest is pretty straight forward

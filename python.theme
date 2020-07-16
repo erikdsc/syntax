@@ -1,0 +1,15 @@
+function: 10;40
+class: 43;3
+import: 30;3
+special: 0;32
+instancevariable: 1;1
+ifwhile: 4;4
+tryexceptelse: 4;4
+for: 4;4
+in: 4;4
+string: 10;93
+comment: 0;36
+#
+FORMAT: <name: theme>
+No extra symbols can be in front of name or behind theme. ": " has to be in the
+middle with no further symbols
