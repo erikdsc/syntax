@@ -22,7 +22,8 @@ def highlight(regexes, color_themes, text, print_output=False):
     first_matches = {}
     for key in regexes.keys():
         try:
-            first_matches[key] = re.search(regexes[key], text, re.MULTILINE).start(0)
+            first_matches[key] = re.search(regexes[key], text, 
+              re.MULTILINE).start(0)
         except AttributeError: pass
     #keeps count of place in text
     position = 0
@@ -32,7 +33,8 @@ def highlight(regexes, color_themes, text, print_output=False):
         for key in first_matches:
             if first_matches[key] <= position:
                 try:
-                    first_matches[key] = re.search(regexes[key], text[position:], re.MULTILINE).start(0) + position
+                    first_matches[key] = (re.search(regexes[key],
+                      text[position:], re.MULTILINE).start(0) + position)
                 except:
                     remove_from_dict.append(key)
         #Removing syntaxes that have no matches
@@ -45,7 +47,8 @@ def highlight(regexes, color_themes, text, print_output=False):
             match = re.search(regexes[key], text[position:], re.MULTILINE)
             coloredText += text[position:position+match.start(0)]
             coloredText += "\033[{}m".format(color_themes[key])
-            coloredText += text[position+match.start(0) : position+match.end(0)] + "\033[0m"
+            coloredText += (text[position+match.start(0): position+match.end(0)] 
+              + "\033[0m")
             position += match.end(0)
         #key = min() will reach ValueError when the function has exhausted all 
         #the syntaxes. This except-clause will terminate the function
@@ -91,4 +94,4 @@ if __name__ == "__main__":
 
     else: #print to make troubleshooting easier
         print("NB: Need three arguments! (syntax_file, theme_file and" +
-        " source_file)")
+          " source_file)")

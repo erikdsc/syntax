@@ -7,8 +7,8 @@ def superdiff(original, modified):
     superdiff uses the function dig to find all non-changed lines, and
     finds the removed and inserted lines based on that.
     Input:
-        original: a list that is used as to find changes in modified
-        modified: a list that you want to find changed made in
+        original (string): a list that is used as to find changes in modified
+        modified (string): a list that you want to find changed made in
     Output:
         a string that contains every change that has been made from original
         to modded
@@ -62,14 +62,14 @@ def dig(original, modded, matches, orgincr=0, modincr=0):
     that set along with a new function call on the lines before and after
     the set
     Input:
-        original: the original string
-        modded: the modded string
-        matches: a list reference that will contain every set of matching
-                lines that are found
-        origincr: an int increment for the original file that makes up for the
-                reduction on indexvalues that comes from slicing lists
-        modincr: an int increment that serves the same purpose as orgincr, but
-                for the modded string
+        original (string): the original string
+        modded (string): the modded string
+        matches (list): a list reference that will contain every set of matching
+            lines that are found
+        origincr (int): an int increment for the original file that makes up for
+            the reduction on indexvalues that comes from slicing lists
+        modincr (int): an int increment that serves the same purpose as orgincr,
+            but for the modded string
     Output:
         A new function call on the remaining parts of the strings
     """
@@ -150,7 +150,7 @@ def LCS(text1, text2, plus1=0, plus2=0):
         return [text1_start+plus1, text1_end+plus1, text2_start+plus2,
          text2_end+plus2]
 
-#If this file is main
+#If this file is run as main
 if __name__ == "__main__":
     #ensures there are enough arguments passed
     if len(sys.argv) >= 3:

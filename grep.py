@@ -7,7 +7,7 @@ def grep(text, regex, line_number=False):
     Returns all lines containing the regex in a string
     Input:
         text (string): a string that you want to search
-        regex: a regex you want to find in the string
+        regex (string): a regex you want to find in the string
     Output:
         a string containing all lines that has the regex
     """
@@ -49,7 +49,8 @@ if __name__ == "__main__":
             syntax = {"a":args.regex[i]}
             theme = {"a":colors[i%6]}
             print(args.regex[i] + ":")
-            hl.highlight(syntax, theme,grep(text, args.regex[i], args.line_number), True)
+            hl.highlight(syntax, theme,grep(text, args.regex[i], 
+             args.line_number), True)
     else:
         for reg in args.regex:
             print(reg + ": ")
