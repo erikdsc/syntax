@@ -38,35 +38,19 @@ The highlight flag will color the regexes in the output and the line_number flag
 
 
 ## Diff
+This script compares files line by line and tries to find out how the first text was modified into the second one. 
+It works recursively by finding the longest sequence of matching lines and marking them unmodified, the function will then do the same on the text before and after this sequence until there are no more lines to compare.  
+
+Run the script with:  
+	`python3 diff.py <text_file1> <text_file2> [<file_to_save_results_in>]`  
+The last argument is optional, the script will print the result to the terminal if no file is specified.   
+  
+An example:  
+	`python3 diff.py difftest1.txt difftest2.txt difftestchanges.txt`  
+The example will find the changes that were made to difftest1.txt to make it into difftest2.txt, the results will be stored in difftestchanges.txt
 
 
+  
 
-
-
-
-### temp
-Running the code:
-Task 1:
-Run with python3 highlighter.py <syntaxfile> <themefile> <sourcefile>
-
-Task 2:
-You can run the demo with "python3 highlighter.py python.syntax python.theme demo.py"
-
-Task 3:
-Decided to go for Java. Did only implement 10 different syntaxes
-Run the demo with "python3 highlighter.py favorite_language.syntax favorite_language.theme demo.java"
-
-Task 4:
-Run demo with for example: "python3 grep.py -filename demo.py -regex "#.*" self alive import class --highlight True"
-
-Task 5:
-Couldn't think of a good way to make use of regular expressions, so I didn't apply it in this task.
-Run demo with "python3 diff.py difftest1.txt difftest2.txt difftestchanges.txt"
-or "python3 diff.py difftest1.txt difftest2.txt"
-The last argument is optional and provides a file to write into. Will print in terminal instead if not provided
-
-Task 6:
-Run demo with "python3 highlighter.py diff.syntax diff.theme difftestchanges.txt"
-
-## To do:
+### To do:
 Make the formatting for regex- and color files less cumbersome
